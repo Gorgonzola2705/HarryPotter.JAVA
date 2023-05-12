@@ -216,8 +216,6 @@ public class Level1 {
             System.out.println("Félicitation vous avez vaincu le troll !");
 
         }
-
-
     }
     }
 

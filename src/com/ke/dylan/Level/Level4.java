@@ -190,7 +190,7 @@ public class Level4 {
 
                     } else {
                         System.out.println("");
-                        System.out.println("vous récupérez le Portoloin et vous vous enfuir");
+                        System.out.println("vous récupérez le Portoloin et vous arrivez à vous enfuir");
                         PVBoss -= 1000000000;
                         PVBoss2 -= 500000000;
                     }

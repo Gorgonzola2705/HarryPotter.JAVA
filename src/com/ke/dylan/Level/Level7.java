@@ -21,21 +21,53 @@ public class Level7 {
 
         Random rand = new Random();
         int random;
+        int random2;
+
+        String Focus;
+        String Focus2;
+        String Focus3;
+        Focus = "Qui souhaitez-vous attaquer ?";
+        Focus2 = "1 Voldemort";
+        Focus3 = "2 Bellatrix Lestrange";
+
 
         String Reussite;
         Reussite = "Vous réussissez votre attaque";
         String Rate;
         Rate = "Vous ratez votre attaque";
 
+        int Expelliarmus1;
+        Expelliarmus1 = 0;
+
+        int Expelliarmus2;
+        Expelliarmus2 = 0;
+
+        int Useless1;
+        Useless1 = 0;
+
+        int Useless2;
+        Useless2 = 0;
+
         int NombrePotion;
         NombrePotion = 5;
         int Potion;
         Potion = 30;
 
-        int PVBoss = 2500;
+        int Blood;
+        Blood = 10;
 
+        int BloodActivation1;
+        BloodActivation1 = 0;
 
-        System.out.println("Souhaitez vous commencer le Troisième niveau ?");
+        int BloodActivation2;
+        BloodActivation2 = 0;
+
+        int PVBoss = 700;
+        int PVBoss2 = 500;
+
+        System.out.println("Vous apprenez Expelliarmus.");
+
+        System.out.println("Souhaitez vous commencer le dernier niveau ?");
         System.out.println("1 Oui");
         System.out.println("2 Non");
 
@@ -50,11 +82,11 @@ public class Level7 {
             System.out.println("2 Non ");
             DebutLevel1 = input.next();
         }
+        System.out.println("Vous êtes face à face avec Voldemort et Bellatrix Lestrange pour un combat au sommet à Poudlard. ");
+        System.out.println("Voldemort a " + PVBoss + " PV.");
+        System.out.println("Bellatrix Lestrange a " + PVBoss2 + " PV.");
 
-        System.out.println("Vous vous trouvez à côté du Lac de la forêt interdite. Vous allez affronter un détraqueur ");
-        System.out.println("Le Détraqueur a " + PVBoss + " PV.");
-
-        while (PVBoss > 0) {
+        while ((PVBoss > 0) || (PVBoss2 > 0)) {
 
 
             System.out.println("Que souhaitez vous faire ?");
@@ -87,7 +119,7 @@ public class Level7 {
 
                 System.out.println("4 Accio");
                 System.out.println("Dégât magique : 0, attire un objet aux alentours");
-                System.out.println("50% de précision");
+                System.out.println("30% de précision");
 
                 System.out.println("");
 
@@ -95,43 +127,119 @@ public class Level7 {
                 System.out.println("invoque votre Patronus");
                 System.out.println("100% de précision");
 
+                System.out.println("");
+
+                System.out.println("6 Sectumsempra");
+                System.out.println("Dégât magique : 50, inflige Saignement (-10PV par tour jusqu'à la fin du combat)");
+                System.out.println("90% de précision");
+
+                System.out.println("");
+
+                System.out.println("7 Expelliarmus ");
+                System.out.println("Ne marche que si Voldemort ou Bellatrix lancent Avada Kedavra (ils ne pourront plus lancer de sort après avoir été désarmés)");
+                System.out.println("L'attaque ne rate jamais");
+
+
                 String ChoixAttaque = "";
                 ChoixAttaque = input.next();
 
+
                 if (ChoixAttaque.equals("1")) {
-                    random = rand.nextInt(100);
 
-                    if (random > ReussiteAttaque + 100) {
-                        System.out.println(Rate);
+                    System.out.println(Focus);
+
+                    if (PVBoss > 0) {
+                        System.out.println(Focus2);
+                    }
+                    if (PVBoss2 > 0) {
+                        System.out.println(Focus3);
                     }
 
-                    if (random < ReussiteAttaque + 100) {
-                        PVBoss -= 5 + profile.getPuissanceMagique();
-                        System.out.println(Reussite);
-                    }
+                    String ChoixFocus = "";
+                    ChoixFocus = input.next();
 
+                    if (ChoixFocus.equals("1")) {
+                        random = rand.nextInt(100);
+
+                        if (random > ReussiteAttaque + 100) {
+                            System.out.println(Rate);
+                        } else if (random < ReussiteAttaque + 100) {
+                            PVBoss -= 5 + profile.getPuissanceMagique();
+                            System.out.println(Reussite);
+                            if (PVBoss <= 0) {
+                                System.out.println("Voldemort meurt par votre attaque");
+                            }
+                        }
+                    } else if (ChoixFocus.equals("2")) {
+                        random = rand.nextInt(100);
+
+                        if (random > ReussiteAttaque + 100) {
+                            System.out.println(Rate);
+                        } else if (random < ReussiteAttaque + 100) {
+                            PVBoss2 -= 5 + profile.getPuissanceMagique();
+                            System.out.println(Reussite);
+                            if (PVBoss2 <= 0) {
+                                System.out.println("Bellatrix meurt par votre attaque");
+                            }
+                        }
+                    }
                 } else if (ChoixAttaque.equals("2")) {
-                    random = rand.nextInt(100);
 
-                    if (random > ReussiteAttaque + 95) {
-                        System.out.println(Rate);
+                    System.out.println(Focus);
+
+                    if (PVBoss > 0) {
+                        System.out.println(Focus2);
                     }
+                    if (PVBoss2 > 0) {
+                        System.out.println(Focus3);
+                    }
+                    String ChoixFocus = "";
+                    ChoixFocus = input.next();
 
-                    if (random < ReussiteAttaque + 95) {
-                        PVBoss -= profile.getPuissancePhysique();
-                        System.out.println(Reussite);
+                    if (ChoixFocus.equals("1")) {
+                        random = rand.nextInt(100);
+
+                        if (random > ReussiteAttaque + 95) {
+                            System.out.println(Rate);
+
+                        } else if (random < ReussiteAttaque + 95) {
+                            PVBoss -= 5 + profile.getPuissancePhysique();
+                            System.out.println(Reussite);
+                            if (PVBoss <= 0) {
+                                System.out.println("Voldemort meurt par votre attaque");
+                            }
+                        }
+                    } else if (ChoixFocus.equals("2")) {
+
+                        random = rand.nextInt(100);
+
+                        if (random > ReussiteAttaque + 95) {
+                            System.out.println(Rate);
+
+                        } else if (random < ReussiteAttaque + 95) {
+                            PVBoss2 -= 5 + profile.getPuissancePhysique();
+                            System.out.println(Reussite);
+                            if (PVBoss2 <= 0) {
+                                System.out.println("Bellatrix meurt par votre attaque");
+                            }
+                        }
                     }
                 } else if (ChoixAttaque.equals("3")) {
                     System.out.println("Il ne se passe rien");
-                }
 
-                else if (ChoixAttaque.equals("4")) {
+                } else if (ChoixAttaque.equals("4")) {
+                    random = rand.nextInt(100);
 
-                    System.out.println("Il ne se passe rien");
+                    if (random < ReussiteAttaque + 30) {
 
-                }
+                        System.out.println(Rate);
 
-                else if (ChoixAttaque.equals("5")) {
+                    } else {
+                        System.out.println("");
+                        System.out.println("Vous ne récupérez rien");
+
+                    }
+                } else if (ChoixAttaque.equals("5")) {
 
                     random = rand.nextInt(100);
 
@@ -140,15 +248,93 @@ public class Level7 {
                     }
 
                     if (random < ReussiteAttaque + 100) {
-                        System.out.println("Votre Patronus est invoqué");
-                        PVBoss -= 10000;
+                        System.out.println("Votre Patronus est invoqué, mais il s'enfuit en voyant Voldemort");
+                    }
+                }
+
+                else if (ChoixAttaque.equals("6")) {
+
+                    System.out.println(Focus);
+
+                    if (PVBoss > 0) {
+                        System.out.println(Focus2);
+                    }
+                    if (PVBoss2 > 0) {
+                        System.out.println(Focus3);
+                    }
+
+                    String ChoixFocus = "";
+                    ChoixFocus = input.next();
+
+                    if (ChoixFocus.equals("1")) {
+                        random = rand.nextInt(100);
+
+                        if (random > ReussiteAttaque + 90) {
+                            System.out.println(Rate);
+
+                        } else if (random < ReussiteAttaque + 90) {
+                            PVBoss -= 50 + profile.getPuissancePhysique();
+                            System.out.println(Reussite);
+                            if (PVBoss <= 0) {
+                                System.out.println("Voldemort meurt par votre attaque");
+                            }
+
+                            if (BloodActivation1 == 0) {
+                                System.out.println("Vous infligez Saignement sur Voldemort");
+                                BloodActivation1 = 1;
+                            }
+
+
+                        }
+                    } else if (ChoixFocus.equals("2")) {
+                        random = rand.nextInt(100);
+
+                        if (random > ReussiteAttaque + 90) {
+                            System.out.println(Rate);
+
+                        } else if (random < ReussiteAttaque + 90) {
+                            PVBoss2 -= 50 + profile.getPuissancePhysique();
+                            System.out.println(Reussite);
+                            if (PVBoss2 <= 0) {
+                                System.out.println("Bellatrix meurt par votre attaque");
+                            }
+
+                            if (BloodActivation2 == 0) {
+                                System.out.println("Vous infligez Saignement sur Bellatrix Lestrange");
+                                BloodActivation2 = 1;
+                            }
+                        }
                     }
 
                 }
-            }
 
+                else if (ChoixAttaque.equals("7")) {
 
-            else if (ChoixCombat.equals("2")) {
+                    if (PVBoss > 0) {
+                        System.out.println(Focus2);
+                    }
+                    if (PVBoss2 > 0) {
+                        System.out.println(Focus3);
+                    }
+
+                    String ChoixFocus = "";
+                    ChoixFocus = input.next();
+
+                    if (ChoixFocus.equals("1")) {
+
+                        System.out.println("Vous préparez un expelliarmus sur Voldemort");
+                        Expelliarmus1 = 1;
+                    }
+
+                    if (ChoixFocus.equals("2")) {
+
+                        System.out.println("Vous préparez un expelliarmus sur Bellatrix Lestrange");
+                        Expelliarmus2 = 1;
+                    }
+
+                }
+
+            } else if (ChoixCombat.equals("2")) {
                 System.out.println("1 Potion de soin (restaure 30 PV)");
                 System.out.println("Il vous en reste " + NombrePotion);
 
@@ -164,17 +350,11 @@ public class Level7 {
                         if (PV > profile.getPVmax()) {
                             PV = profile.getPVmax();
                         }
-                    }
-
-                    else if (NombrePotion == 0) {
+                    } else if (NombrePotion == 0) {
                         System.out.println("Vous n'avez plus de potions...");
                     }
-
-
                 }
-            }
-
-            else if (ChoixCombat.equals("3")) {
+            } else if (ChoixCombat.equals("3")) {
                 System.out.println("");
                 System.out.println("Vous choisissez de ne rien faire");
 
@@ -183,37 +363,122 @@ public class Level7 {
             if (PVBoss > 0) {
 
 
-                System.out.println("");
-                System.out.println("Il reste " + PVBoss + "PV au Boss");
-                System.out.println("");
-
-
-                random = rand.nextInt(100);
-
-                if (random > profile.getEsquive()) {
-                    System.out.println("");
-                    System.out.println("Le Détraqueur vous attaque et vous perdez 30 PV");
-                    PV -= 30;
-
-                    if (PV > 0) {
-                        System.out.println("");
-                        System.out.println("Il vous reste " + PV + "PV");
-                    }
+                if (BloodActivation1 == 1) {
+                    PVBoss -= Blood;
+                    System.out.println("Voldemort saigne et perd 10PV");
                 }
 
-                if (random < profile.getEsquive()) {
+                if (PVBoss <= 0) {
+                    System.out.println("Voldemort meurt de son saignement");
 
-                    System.out.println("");
-                    System.out.println("Le Détraqueur rate son attaque");
-
-                    if (PV > 0) {
-                        System.out.println("");
-                        System.out.println("Il vous reste " + PV + "PV");
-                    }
                 }
 
+                if (PVBoss > 0) {
 
+                    System.out.println("Il reste " + PVBoss + "PV à Voldemort");
+
+                    random = rand.nextInt(2);
+                    random2 = rand.nextInt(100);
+
+
+
+                        if (random == 0) {
+
+                            if (Useless1 == 0) {
+
+                                if (random2 > 60 + profile.getEsquive()) {
+
+                                    System.out.println("Voldemort utilise Avada Kedavra");
+
+                                    if (Expelliarmus1 == 0) {
+                                        PV -= 100;
+                                    }
+                                    if (Expelliarmus1 == 1) {
+                                        System.out.println("Vous contrez le Avada Kedavra de Voldemort et il ne pourra plus utiliser de sorts !");
+                                        Useless1 = 1;
+                                    }
+                                }
+                            }
+
+                            if (Useless1 == 0) {
+                                System.out.println("Voldemort vous regarde");
+                            }
+
+                        }
+
+                    if (random == 1) {
+                        if (random2 < profile.getEsquive()) {
+
+                            System.out.println("");
+                            System.out.println("Voldemort rate son attaque");
+                        } else if (random2 > profile.getEsquive()) {
+
+                            System.out.println("");
+                            System.out.println("Voldemort fait un Moonwalk pour essayer de vous intimider");
+
+                        }
+                    }
+                }
             }
+
+
+            if (PVBoss2 > 0) {
+
+
+                if (BloodActivation2 == 1) {
+                    PVBoss2 -= Blood;
+                    System.out.println("Bellatrix saigne et perd 10PV");
+                }
+
+                if (PVBoss2 <= 0) {
+                    System.out.println("Bellatrix meurt de son saignement");
+
+                }
+                if (PVBoss2 > 0) {
+
+                    System.out.println("Il reste " + PVBoss2 + "PV à Bellatrix");
+
+                    random = rand.nextInt(2);
+                    random2 = rand.nextInt(100);
+
+                    if (Useless1 == 0) {
+
+                        if (random == 0) {
+
+                            if (random2 > 60 + profile.getEsquive()) {
+
+                                System.out.println("Bellatrix utilise Avada Kedavra");
+
+                                if (Expelliarmus2 == 0) {
+                                    PV = -100;
+                                }
+
+                                if (Expelliarmus2 == 1) {
+                                    System.out.println("Vous contrez le Avada Kedavra de Bellatrix et elle ne pourra plus utiliser de sorts !");
+                                    Useless2 = 1;
+                                }
+                            }
+                        }
+                    }
+
+                        if (Useless2 == 0) {
+                            System.out.println("Bellatrix vous regarde");
+                        }
+
+                    if (random2 < profile.getEsquive()) {
+
+                        System.out.println("");
+                        System.out.println("Bellatrix rate son attaque");
+                    } else if (random2 > profile.getEsquive()) {
+
+                        System.out.println("");
+                        System.out.println("Bellatrix fait un Moonwalk pour essayer de vous intimider");
+
+                    }
+
+                }
+            }
+
 
             if (PV <= 0) {
                 System.out.println("");
@@ -221,15 +486,19 @@ public class Level7 {
                 System.out.println("Dommage, vous avez perdu...");
                 System.exit(0);
             }
+
+            Expelliarmus1 = 0;
+            Expelliarmus2 = 0;
         }
 
-        if (PVBoss < 0) {
+
+        if (PVBoss < 0 && PVBoss2 < 0)   {
             System.out.println("");
-            System.out.println("Le Détraqueur s'enfuit !");
-            System.out.println("Félicitation vous avez survécu");
+            System.out.println("Félicitation vous avez terminé le jeu !!!!");
 
         }
 
 
-    }
+}
+
 }
