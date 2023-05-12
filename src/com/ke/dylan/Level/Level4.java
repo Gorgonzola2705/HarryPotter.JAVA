@@ -24,7 +24,12 @@ public class Level4 {
         int random2;
 
         String Focus;
-        Focus = "Qui souhaitez-vous attaquer ?\\n1 Voldemort\\n2 Peter Pettigrow?\"";
+        String Focus2;
+        String Focus3;
+        Focus = "Qui souhaitez-vous attaquer ?";
+        Focus2 = "1 Voldemort";
+        Focus3 = "2 Peter Pettigrow";
+
 
         String Reussite;
         Reussite = "Vous réussissez votre attaque";
@@ -57,7 +62,7 @@ public class Level4 {
         }
         System.out.println("Vous êtes face à face avec Voldemort et  Peter Pettigrow dans le Cimetière de Little Hangleton ");
         System.out.println("Voldemort a " + PVBoss + " PV.");
-        System.out.println("Peter Pettigrow a " + PVBoss + " PV.");
+        System.out.println("Peter Pettigrow a " + PVBoss2 + " PV.");
 
         while ((PVBoss > 0) || (PVBoss2 > 0)) {
 
@@ -107,6 +112,9 @@ public class Level4 {
                 if (ChoixAttaque.equals("1")) {
 
                     System.out.println(Focus);
+                    System.out.println(Focus2);
+                    System.out.println(Focus3);
+
                     String ChoixFocus = "";
                     ChoixFocus = input.next();
 
@@ -131,12 +139,15 @@ public class Level4 {
                                 PVBoss2 -= 5 + profile.getPuissanceMagique();
                                 System.out.println(Reussite);
                             }
-
                         }
+                }
 
-                } else if (ChoixAttaque.equals("2")) {
+                else if (ChoixAttaque.equals("2")) {
 
                     System.out.println(Focus);
+                    System.out.println(Focus2);
+                    System.out.println(Focus3);
+
                     String ChoixFocus = "";
                     ChoixFocus = input.next();
 
@@ -151,6 +162,7 @@ public class Level4 {
                             System.out.println(Reussite);
                         }
                     }
+
                     else if (ChoixFocus.equals("2")) {
 
                         random = rand.nextInt(100);
@@ -231,7 +243,7 @@ public class Level4 {
 
                 System.out.println("");
                 System.out.println("Il reste " + PVBoss + "PV à Voldemort");
-                System.out.println("Il reste " + PVBoss + "PV à Peter Pettigrow");
+                System.out.println("Il reste " + PVBoss2 + "PV à Peter Pettigrow");
                 System.out.println("");
 
 
