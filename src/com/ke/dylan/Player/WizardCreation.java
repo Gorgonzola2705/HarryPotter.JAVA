@@ -3,7 +3,11 @@ package com.ke.dylan.Player;
 import java.util.Scanner;
 
 public class WizardCreation {
+    Profile profile;
 
+    public WizardCreation(Profile profile) {
+        this.profile = profile;
+    }
 
     public void start() {
 
@@ -27,20 +31,17 @@ public class WizardCreation {
                 "Esquive : 15  \n " +
                 " ");
 
-        Profile profile = new Profile();
+        System.out.println("Vous possédez également 5 potions de soin qui se rechargeront à la fin de chaque niveau.");
+
 
 
         profile.wand = new Wand();
-        System.out.println(profile.wand.getWand());
 
         profile.pet = new Pet();
-        System.out.println(profile.pet.getPet());
 
-        SortingHat SortingHat = new SortingHat();
-        SortingHat.start();
+        profile.Sortinghat = new Sortinghat();
 
         profile.start();
-
 
     }
 }

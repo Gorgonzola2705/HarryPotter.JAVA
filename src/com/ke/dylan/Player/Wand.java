@@ -1,5 +1,4 @@
 package com.ke.dylan.Player;
-
 import java.util.Random;
 import java.util.Scanner;
 
@@ -54,8 +53,6 @@ public class Wand {
             System.out.println("Il s'agit de MBappe, Une baguette faite en coquille de tortue et de pied de licorne.");
             System.out.println("Elle vous donnera +20 d'esquive, mais vous devenez si rapide que vous perdez -10 de précision sur toutes vos attaques");
             Wand = "MBappe";
-            int MBappeEsquive = 20;
-            int MBappePrecision = -10;
 
         }
 
@@ -66,14 +63,6 @@ public class Wand {
             System.out.println("Il s'agit UnMAXdePV, une baguette faite en peau de Ronflex et en plume de chouette");
             System.out.println("Elle vous donnera +200 PV, mais vous perdez -10 en puissance magique et -30 en précision");
             Wand = "UnMAXdePV";
-            int UnMAXdePVPV = 200;
-            int UnMAXdePVPuiMag = -10;
-            int UnMAXdePVPrevision = -30;
-
-            //Profile PV = new Profile();
-            //profile.setPvMax = 300;
-            //PV.setPvMax(300);
-            //System.out.println(PV.getPvMax());
 
         }
 
@@ -82,18 +71,12 @@ public class Wand {
             System.out.println("Il s'agit de ErenPeteur, Une baguette faite en peau de titan infusé dans les pets d'Eren Yeager. Son odeur vous détend");
             System.out.println("Elle vous donnera +5 de force, +5 esquive + 5 précision sur toutes vos attaques + 20 pv");
             Wand = "ErenPeteur";
-            int ErenPeteurPuiPhy = 5;
-            int ErenPeteurEsquive = 5;
-            int ErenPeteurPrecision = 5;
-            int ErenPeteurPV = 20;
         }
 
         else if (Wand.equals("5")) {
             System.out.println("Aucune baguette se rapproche de vous.");
-            System.out.println("Néanmoins vous sentez qu'une puissance vous envahi, +20 en puissance physique, mais vous perdez toute votre puissance magique");
+            System.out.println("Néanmoins vous sentez qu'une puissance vous envahi, +40 en puissance physique, mais vous perdez toute votre puissance magique");
             Wand = "Rien";
-            int RienPuiPhy = 20;
-            int RienPuiMag = -1000;
         }
 
         else if (Wand.equals("6")) {
@@ -101,26 +84,22 @@ public class Wand {
             System.out.println("Il s'agit de Smash, une baguette faite en plume de hiboux et en corne de licorne.");
             System.out.println("Elle vous donnera +10 de puissance magique, +1 en puissance physique + 5 en précision");
             Wand = "Smash";
-            int SmashPuiMag = 10;
-            int SmashPuiPhy = 1;
-            int SmashPrecision = 5;
+
         }
 
         else if (Wand.equals("7")) {
             System.out.println("Une baguette arrive mais elle semble méfiante");
             System.out.println("Il s'agit de 100%, avec elle vous ne raterez jamais une seule attaque, vous perdez par contre -5 puissance magique");
             Wand = "CentPourcent";
-            int CentPourcentPrecision = 100;
-            int CentPourcentPuiMag = -5;
+
         }
 
         else if (Wand.equals("8")) {
             System.out.println("Ollivander s'énerve et vous donne la baguette maudite");
             System.out.println("Il s'agit de MBaclé le jumeau maléfique de Mbappé,");
-            System.out.println("Vos attaques magiques ne toucheront plus jamais vos ennemis, et vous perdez -50PV.");
+            System.out.println("Vos attaques ne toucheront plus jamais vos ennemis, et vous perdez -50PV.");
             Wand = "MBaclé";
-            int MBaclePV = -50;
-            int MBaclePrecision = -100;
+
         }
 
         else if (Wand.equals("9")) {
@@ -134,8 +113,6 @@ public class Wand {
             int HazardPuiMag = rand.nextInt(25);
             int HazardPrecision = rand.nextInt(100);
             int HazardEsquive = rand.nextInt(20);
-
-
 
         }
 

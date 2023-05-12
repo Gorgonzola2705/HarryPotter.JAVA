@@ -41,28 +41,28 @@ public class Pet {
             System.out.println("Une obtenez un hibou, comment souhaitez vous l'appeler ?");
             Pet = "Hibou";
             PetName = input.next();
-            System.out.println(PetName);
+            System.out.println("Vous avez renommé votre hibou " + PetName);
         }
 
         if (Pet.equals("2")) {
             System.out.println("Une obtenez un Rat, comment souhaitez vous l'appeler ?");
             Pet = "Rat";
             PetName = input.next();
-            System.out.println(PetName);
+            System.out.println("Vous avez renommé votre rat " + PetName);
         }
 
         if (Pet.equals("3")) {
             System.out.println("Une obtenez un Phoenix, comment souhaitez vous l'appeler ?");
             Pet = "Phoenix";
             PetName = input.next();
-            System.out.println(PetName);
+            System.out.println("Vous avez renommé votre phoenix " + PetName);
         }
 
         if (Pet.equals("4")) {
             System.out.println("Une obtenez un Licorne, comment souhaitez vous l'appeler ?");
             Pet = "Licorne";
             PetName = input.next();
-            System.out.println(PetName);
+            System.out.println("Vous avez renommé votre licorne " + PetName);
         }
 
         this.Pet = Pet;
