@@ -121,13 +121,22 @@ public class Level3 {
                         PVBoss -= profile.getPuissancePhysique();
                         System.out.println(Reussite);
                     }
+
+
                 } else if (ChoixAttaque.equals("3")) {
                     System.out.println("Il ne se passe rien");
                 }
 
-                else if (ChoixAttaque.equals("4")) {
 
-                    System.out.println("Il ne se passe rien");
+                else if (ChoixAttaque.equals("4")) {
+                    random = rand.nextInt(100);
+
+                    if (random < ReussiteAttaque + 100) {
+                        System.out.println("Il ne se passe rien");
+                    }
+                    else {
+                        System.out.println(Rate);
+                    }
 
                 }
 

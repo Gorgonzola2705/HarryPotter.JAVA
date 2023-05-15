@@ -360,10 +360,11 @@ public class Level6 {
                 } else if (ChoixAttaque.equals("3")) {
                     System.out.println("Il ne se passe rien");
                 }
+
                 else if (ChoixAttaque.equals("4")) {
                     random = rand.nextInt(100);
 
-                    if (random < ReussiteAttaque + 30) {
+                    if (random > ReussiteAttaque + 30) {
 
                         System.out.println("");
                         System.out.println(Rate);

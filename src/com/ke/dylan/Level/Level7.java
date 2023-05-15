@@ -230,7 +230,7 @@ public class Level7 {
                 } else if (ChoixAttaque.equals("4")) {
                     random = rand.nextInt(100);
 
-                    if (random < ReussiteAttaque + 30) {
+                    if (random > ReussiteAttaque + 30) {
 
                         System.out.println(Rate);
 
@@ -391,7 +391,7 @@ public class Level7 {
                                     System.out.println("Voldemort utilise Avada Kedavra");
 
                                     if (Expelliarmus1 == 0) {
-                                        PV -= 100;
+                                        PV = -100;
                                     }
                                     if (Expelliarmus1 == 1) {
                                         System.out.println("Vous contrez le Avada Kedavra de Voldemort et il ne pourra plus utiliser de sorts !");
@@ -492,7 +492,7 @@ public class Level7 {
         }
 
 
-        if (PVBoss < 0 && PVBoss2 < 0)   {
+        if (PVBoss <= 0 && PVBoss2 <= 0)   {
             System.out.println("");
             System.out.println("Félicitation vous avez terminé le jeu !!!!");
 

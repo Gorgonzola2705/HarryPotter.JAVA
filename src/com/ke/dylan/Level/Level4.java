@@ -184,7 +184,7 @@ public class Level4 {
                 else if (ChoixAttaque.equals("4")) {
                     random = rand.nextInt(100);
 
-                    if (random < ReussiteAttaque + 30) {
+                    if (random > ReussiteAttaque + 30) {
 
                         System.out.println(Rate);
 
